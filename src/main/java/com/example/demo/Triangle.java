@@ -2,27 +2,54 @@ package com.example.demo;
 
 public class Triangle {
 
-    public double side1;
-    public double side2;
-    public double side3;
-    public double square;
-    public double perimeter;
+    private double side1;
+    private double side2;
+    private double side3;
 
     public Triangle(double side1, double side2, double side3) {
-        this.side1 = side1;
-        this.side2 = side2;
-        this.side3 = side3;
+        this.side1=side1;
+        this.side2=side2;
+        this.side3=side3;
     }
 
-    public boolean CheckTriangle() {
+    public boolean IsTriangleExist() {
         return side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1;
     }
 
-    public void setPerimeter() {
-        this.perimeter = side1 + side2 + side3;
+    public boolean IsInputCorrect() {
+        return side1 > 0 && side2 > 0 && side3 > 0;
     }
 
-    public void setSquare() {
-        this.square = Math.sqrt((perimeter / 2) * (perimeter / 2 - side1) * (perimeter / 2 - side2) * (perimeter / 2 - side3));
+    public double CalculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+
+    public double CalculateSquare() {
+        double semiPerimeter = (side1 + side2 + side3) / 2;
+        return Math.sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3));
+    }
+
+    public double getSide1() {
+        return side1;
+    }
+
+    public void setSide1(double side1) {
+        this.side1 = side1;
+    }
+
+    public double getSide2() {
+        return side2;
+    }
+
+    public void setSide2(double side2) {
+        this.side2 = side2;
+    }
+
+    public double getSide3() {
+        return side3;
+    }
+
+    public void setSide3(double side3) {
+        this.side3 = side3;
     }
 }

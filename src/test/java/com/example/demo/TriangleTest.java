@@ -9,8 +9,7 @@ public class TriangleTest {
         Triangle test = new Triangle(5, 4, 3);
         double expected = 6;
 
-        test.setSquare();
-        double res1 = test.square;
+        double res1 = test.CalculateSquare();
 
         Assertions.assertEquals(expected, res1);
     }
@@ -20,8 +19,27 @@ public class TriangleTest {
         Triangle test = new Triangle(5, 4, 3);
         double expected = 12;
 
-        test.setPerimeter();
-        double res1 = test.perimeter;
+        double res1 = test.CalculatePerimeter();
+
+        Assertions.assertEquals(expected, res1);
+    }
+
+    @Test
+    void Existence() {
+        Triangle test = new Triangle(100, 4, 63);
+        boolean expected = false;
+
+        boolean res1 = test.IsTriangleExist();
+
+        Assertions.assertEquals(expected, res1);
+    }
+
+    @Test
+    void Input() {
+        Triangle test = new Triangle(-5, -4, -3);
+        boolean expected = false;
+
+        boolean res1 = test.IsInputCorrect();
 
         Assertions.assertEquals(expected, res1);
     }
