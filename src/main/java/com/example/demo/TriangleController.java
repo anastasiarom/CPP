@@ -21,24 +21,26 @@ public class TriangleController {
                                        @RequestParam(value = "side3", defaultValue = "3") Double side3) {
 
         Triangle triangle = new Triangle(side1, side2, side3);
-        if (triangle.IsInputCorrect()) {
-            logger.info("Correct input");
-            if (triangle.IsTriangleExist()) {
+        if (triangle.isInputCorrect()) {
+            logger.info("Correct input:" + side1 + side2 + side3);
+            if (triangle.isTriangleExist()) {
                 logger.info("The triangle exists");
-                TriangleParameters parameters = new TriangleParameters(triangle.CalculatePerimeter(), triangle.CalculateSquare());
+                TriangleParameters parameters;
                 if (cache.isAlreadyHashed(triangle)) {
                     logger.info("The value is already saved in cache");
+                    parameters = cache.getParameters(triangle);
                 } else {
+                    parameters = new TriangleParameters(triangle.calculatePerimeter(), triangle.calculateSquare());
                     cache.addToCache(triangle, parameters);
                     logger.info("The value was successfully saved to the cache");
                 }
                 return parameters;
             } else {
-                logger.info("500 error!");
+                logger.error("500 error!");
                 throw new InternalServerException();
             }
         } else {
-            logger.info("400 error!");
+            logger.error("400 error!");
             throw new BadRequestException();
         }
     }

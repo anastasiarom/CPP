@@ -13,15 +13,15 @@ public class Cache {
         cache = new HashMap<>();
     }
 
-    public boolean isAlreadyHashed(Triangle triangle) {
-        return cache.containsKey(triangle);
+    public boolean isAlreadyHashed(Triangle key) {
+        return cache.containsKey(key);
     }
 
-    public void addToCache(Triangle triangle, TriangleParameters parameters) {
-        cache.put(triangle, parameters);
+    public void addToCache(Triangle key, TriangleParameters parameters) {
+        cache.put(key, parameters);
     }
 
-    public TriangleParameters getParameters(Triangle triangle) {
-        return cache.get(triangle);
+    public TriangleParameters getParameters(Triangle key) {
+        return cache.get(key);
     }
 }

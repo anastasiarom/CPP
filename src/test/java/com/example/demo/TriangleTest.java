@@ -9,9 +9,9 @@ public class TriangleTest {
         Triangle test = new Triangle(5, 4, 3);
         double expected = 6;
 
-        double res1 = test.CalculateSquare();
+        double res = test.calculateSquare();
 
-        Assertions.assertEquals(expected, res1);
+        Assertions.assertEquals(expected, res);
     }
 
     @Test
@@ -19,28 +19,39 @@ public class TriangleTest {
         Triangle test = new Triangle(5, 4, 3);
         double expected = 12;
 
-        double res1 = test.CalculatePerimeter();
+        double res = test.calculatePerimeter();
 
-        Assertions.assertEquals(expected, res1);
+        Assertions.assertEquals(expected, res);
     }
 
     @Test
     void Existence() {
         Triangle test = new Triangle(100, 4, 63);
-        boolean expected = false;
 
-        boolean res1 = test.IsTriangleExist();
+        boolean res = test.isTriangleExist();
 
-        Assertions.assertEquals(expected, res1);
+        Assertions.assertFalse(res);
     }
 
     @Test
     void Input() {
         Triangle test = new Triangle(-5, -4, -3);
-        boolean expected = false;
 
-        boolean res1 = test.IsInputCorrect();
+        boolean res1 = test.isInputCorrect();
 
-        Assertions.assertEquals(expected, res1);
+        Assertions.assertFalse(res1);
+    }
+
+    @Test
+    void CacheTest() {
+
+        Cache cache = new Cache();
+        Triangle test = new Triangle(5, 4, 3);
+        TriangleParameters testParam = new TriangleParameters(12, 6);
+
+        cache.addToCache(test, testParam);
+        boolean res1 = cache.isAlreadyHashed(test);
+
+        Assertions.assertTrue(res1);
     }
 }

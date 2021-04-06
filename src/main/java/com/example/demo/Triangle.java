@@ -7,49 +7,56 @@ public class Triangle {
     private double side3;
 
     public Triangle(double side1, double side2, double side3) {
-        this.side1=side1;
-        this.side2=side2;
-        this.side3=side3;
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
     }
 
-    public boolean IsTriangleExist() {
+    public boolean isTriangleExist() {
         return side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1;
     }
 
-    public boolean IsInputCorrect() {
+    public boolean isInputCorrect() {
         return side1 > 0 && side2 > 0 && side3 > 0;
     }
 
-    public double CalculatePerimeter() {
+    public double calculatePerimeter() {
         return side1 + side2 + side3;
     }
 
-    public double CalculateSquare() {
+    public double calculateSquare() {
         double semiPerimeter = (side1 + side2 + side3) / 2;
         return Math.sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3));
     }
 
-    public double getSide1() {
-        return side1;
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        Double s1 = side1;
+        Double s2 = side2;
+        Double s3 = side3;
+        result = prime * result + s1.hashCode();
+        result = prime * result + s2.hashCode();
+        result = prime * result + s3.hashCode();
+        return result;
     }
 
-    public void setSide1(double side1) {
-        this.side1 = side1;
-    }
-
-    public double getSide2() {
-        return side2;
-    }
-
-    public void setSide2(double side2) {
-        this.side2 = side2;
-    }
-
-    public double getSide3() {
-        return side3;
-    }
-
-    public void setSide3(double side3) {
-        this.side3 = side3;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Triangle other = (Triangle) obj;
+        if (side1 != other.side1)
+            return false;
+        if (side2 != other.side2)
+            return false;
+        if (side3 != other.side3)
+            return false;
+        return true;
     }
 }

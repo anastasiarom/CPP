@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -20,14 +21,10 @@ public class TriangleControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void doServiceTest() {
-        try {
-            this.mockMvc.perform(get("/?side1=5&side2=4&side=3"))
-                    .andDo(print())
-                    .andExpect(status().isOk())
-                    .andExpect(content().json("{\"Triangle Perimeter\":12.0,\"Triangle Square\":6.0}"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void doServiceTest() throws Exception {
+        this.mockMvc.perform(get("/?side1=5&side2=4&side=3"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"Triangle Perimeter\":12.0,\"Triangle Square\":6.0}"));
     }
 }
