@@ -4,14 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.demo.validation.exceptions.BadRequestException;
-import com.example.demo.validation.exceptions.InternalServerException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @RestController
 public class TriangleController {
-    Logger logger = LogManager.getLogger(TriangleController.class);
     @Autowired
     TriangleService service;
     @GetMapping("/")
