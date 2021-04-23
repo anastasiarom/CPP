@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TriangleTest {
-    @Test
-    void Square() {
+
+    /*void Square() {
         Triangle test = new Triangle(5, 4, 3);
         double expected = 6;
 
@@ -33,7 +33,7 @@ public class TriangleTest {
         Assertions.assertFalse(res);
     }
 
-    @Test
+
     void Input() {
         Triangle test = new Triangle(-5, -4, -3);
 
@@ -41,7 +41,7 @@ public class TriangleTest {
 
         Assertions.assertFalse(res1);
     }
-
+*/
     @Test
     void CacheTest() {
 
