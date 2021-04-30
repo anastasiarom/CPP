@@ -1,6 +1,6 @@
 package com.example.demo.validation;
 
-import com.example.demo.Triangle;
+import com.example.demo.entity.Triangle;
 import com.example.demo.validation.exceptions.BadRequestException;
 import com.example.demo.validation.exceptions.InternalServerException;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +12,7 @@ public class TriangleValidation {
 
     public boolean isValid(Triangle triangle) {
         if (triangle.getSide1() > 0 && triangle.getSide2() > 0 && triangle.getSide3() > 0) {
-            logger.info("Correct input:" + triangle.getSide1() + triangle.getSide2() + triangle.getSide3());
+            logger.info("Correct input:  " + triangle.getSide1() + "  " + triangle.getSide2() + "  " + triangle.getSide3());
             if (triangle.getSide1() + triangle.getSide2() > triangle.getSide3()
                     && triangle.getSide1() + triangle.getSide3() > triangle.getSide2()
                     && triangle.getSide2() + triangle.getSide3() > triangle.getSide1()) {

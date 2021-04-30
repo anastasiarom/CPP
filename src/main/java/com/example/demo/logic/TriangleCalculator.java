@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.logic;
+
+import com.example.demo.entity.Triangle;
 
 public class TriangleCalculator {
     public double calculatePerimeter(Triangle triangle) {

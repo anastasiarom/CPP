@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.entity.Triangle;
+import com.example.demo.entity.TriangleParameters;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

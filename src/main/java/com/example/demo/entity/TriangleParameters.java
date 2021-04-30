@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,4 +14,19 @@ public class TriangleParameters {
         this.square = square;
     }
 
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public double getSquare() {
+        return square;
+    }
+
+    @Override
+    public String toString() {
+        return "{ " +
+                "perimeter = " + perimeter +
+                ", square = " + square +
+                "}";
+    }
 }
